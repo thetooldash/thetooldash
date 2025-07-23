@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Link Shortener Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../../logo-light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../logo-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-link"></i> Acortador de Enlaces de Amazon</h1>
+            <p class="subtitle">Acorta enlaces de Amazon y genera URLs limpias</p>
+            <div class="status-indicator" id="statusIndicator">Listo</div>
+        </div>
+        
+        <div class="stats-section" id="statsSection">
+            <div class="stat-card">
+                <div class="stat-number" id="totalLinks">0</div>
+                <div class="stat-label">Enlaces</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayLinks">0</div>
+                <div class="stat-label">Hoy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="favoriteRegion">—</div>
+                <div class="stat-label">Región</div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <label class="input-label">Pega o escribe el enlace de Amazon:</label>
+            <div class="input-group">
+                <div class="url-input-container">
+                    <input type="url" class="url-input" id="urlInput" placeholder="https://www.amazon.com/product/...">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                </div>
+                <button class="btn btn-primary" id="shortenBtn">
+                    <i class="fas fa-compress-alt"></i> Acortar
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    <i class="fas fa-eraser"></i> Limpiar
+                </button>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div class="result-container" id="resultContainer">
+                <div class="result-text" id="resultText">El enlace acortado aparecerá aquí</div>
+                <div class="result-actions" id="resultActions">
+                    <button class="action-btn" id="copyBtn">
+                        <i class="fas fa-copy"></i> Copiar
+                    </button>
+                    <button class="action-btn" id="openBtn">
+                        <i class="fas fa-external-link-alt"></i> Abrir
+                    </button>
+                    <button class="action-btn" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Compartir
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <div class="history-controls">
+                <div class="history-header">Historial (últimos 10)</div>
+                <div class="history-actions">
+                    <button class="history-btn" id="clearHistoryBtn">
+                        <i class="fas fa-trash"></i> Limpiar
+                    </button>
+                    <button class="history-btn" id="exportHistoryBtn">
+                        <i class="fas fa-download"></i> Exportar
+                    </button>
+                </div>
+            </div>
+            <div class="history-container" id="historyContainer">
+                <div class="history-empty" id="historyEmpty">No hay enlaces en el historial</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="message" id="message"></div>
+            <div class="shortcuts">
+                <i class="fas fa-keyboard"></i> Ctrl+V para pegar • Enter para procesar • Esc para limpiar
+                <p>&copy; 2025 TheToolDash. Todos los derechos reservados.</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+
+    <script src="link-shortener.js"></script>
+</body>
+</html>

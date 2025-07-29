@@ -293,6 +293,14 @@
                     Crea URLs limpias y profesionales para tus recomendaciones.
                 </p>
             </div>
+            <div class="tool-card" onclick="openTool('resizer')">
+                <span class="tool-icon css-icon">🖼️</span>
+                <h3 class="tool-title">Redimensionador de imágenes</h3>
+                <p class="tool-description">
+                    Transforma tus imágenes al instante. 
+                    Ajusta dimensiones, formato y calidad con facilidad.
+                </p>
+            </div>
             
             <div class="tool-card" onclick="openTool('visualcss')">
                 <span class="tool-icon css-icon">🎨</span>
@@ -328,7 +336,6 @@
         
         // Función para navegación a herramientas
         function openTool(toolName) {
-            // Efecto de click con animación
             const clickedCard = event.currentTarget;
             clickedCard.style.transform = 'scale(0.95)';
             
@@ -338,11 +345,12 @@
                 switch(toolName) {
                     case 'amazon':
                         window.location.href = 'https://thetooldash.com/projects/amazon-link-shortener/amazon-link-shortener.html';
-                        console.log('Navegando a Acortador de Amazon...');
+                        break;
+                    case 'resizer':
+                        window.location.href = 'https://thetooldash.com/projects/image-resizer/image-resizer.html';
                         break;
                     case 'visualcss':
                         window.location.href = 'https://visualcss.online';
-                        console.log('Navegando a VisualCSS...');
                         break;
                     default:
                         console.log('Herramienta no encontrada');

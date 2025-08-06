@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tool Dash - Dashboard de Herramientas</title>
     <meta name="description" content="The Tool Dash (TTD) es una colección de herramientas online útiles y simples. Empieza con un acortador de enlaces y VisualCSS, una galería interactiva de estilos CSS. Más herramientas pronto.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="/logo-light.png" media="(prefers-color-scheme: light)">
     <link rel="icon" href="/logo-dark.png" media="(prefers-color-scheme: dark)">
     <!-- Google tag (gtag.js) -->
@@ -32,6 +34,8 @@
             color: #e0e0e0;
             overflow-x: hidden;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .bg-particles {
@@ -62,11 +66,12 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 2rem;
             position: relative;
             z-index: 1;
+            flex: 1;
         }
         
         .hero {
@@ -109,12 +114,12 @@
         
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
         }
         
         .tool-card {
+            opacity: 0;
             background: linear-gradient(145deg, rgba(26, 10, 46, 0.6), rgba(13, 10, 26, 0.8));
             border: 1px solid rgba(199, 112, 255, 0.3);
             border-radius: 20px;
@@ -125,7 +130,7 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            animation: slideUp 1s ease-out;
+            animation: slideUp 1s ease-out forwards;
         }
         
         .tool-card:nth-child(1) { animation-delay: 0.2s; }
@@ -309,6 +314,14 @@
                     Ajusta dimensiones, formato y calidad con facilidad.
                 </p>
             </div>
+            <div class="tool-card" onclick="openTool('background')">
+                <span class="tool-icon css-icon"><i class="fas fa-image upload-icon"></i></span>
+                <h3 class="tool-title">Eliminador de fondos de imágenes</h3>
+                <p class="tool-description">
+                    Elimina fondos de imágenes al instante.  
+                    Ajusta y descarga resultados con la mejor calidad.
+                </p>
+            </div>
             
             <div class="tool-card" onclick="openTool('visualcss')">
                 <span class="tool-icon css-icon">🎨</span>
@@ -335,6 +348,7 @@
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
+                particle.style.top = Math.random() * 100 + 'vh';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 particle.style.animationDuration = (Math.random() * 10 + 15) + 's';

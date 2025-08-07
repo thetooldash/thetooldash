@@ -573,6 +573,10 @@
             text-align: center;
             margin-top: 20px;
         }
+        .download-section p{
+            color: #707080;
+            font-size: 0.9rem;
+        }
 
         .download-options {
             display: flex;

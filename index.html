@@ -281,6 +281,15 @@
                 letter-spacing: 1px;
             }
         }
+        
+        @media (min-width: 2560px) {
+            .tools-grid {
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                gap: 2rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -365,13 +374,13 @@
                 
                 switch(toolName) {
                     case 'amazon':
-                        window.location.href = 'https://thetooldash.com/projects/amazon-link-shortener/amazon-link-shortener.html';
+                        window.location.href = 'https://thetooldash.com/projects/amazon-link-shortener';
                         break;
                     case 'resizer':
-                        window.location.href = 'https://thetooldash.com/projects/image-resizer/image-resizer.html';
+                        window.location.href = 'https://thetooldash.com/projects/image-resizer';
                         break;
                     case 'background':
-                        window.location.href = 'https://thetooldash.com/projects/image-remover/image-remover.html';
+                        window.location.href = 'https://thetooldash.com/projects/image-remover';
                         break;
                     case 'visualcss':
                         window.location.href = 'https://visualcss.online';

@@ -6,7 +6,7 @@
 <title>Protocol Stack v2.0 — Stack de Suplementación Pre &amp; Intra Entreno (HSN Raw &amp; Sport Series)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Syne:wght@600;800&display=swap" rel="stylesheet">
 <link rel="icon" href="/logo-light.png" media="(prefers-color-scheme: light)">
 <link rel="icon" href="/logo-dark.png" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Protocolo de suplementación de élite: pre e intra entreno con HSN Raw &amp; Sport Series. Dosis exactas, función y producto recomendado. Ver el stack →">
@@ -64,7 +64,7 @@
   body {
     background: var(--bg);
     color: var(--text-primary);
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -110,7 +110,7 @@
     z-index: 2;
     max-width: 860px;
     margin: 0 auto;
-    padding: 72px 32px 80px;
+    padding: clamp(48px, 6vw, 72px) clamp(16px, 4vw, 32px) clamp(64px, 8vw, 80px);
   }
 
   /* ── HEADER ── */
@@ -143,6 +143,7 @@
   }
 
   h1 {
+    font-family: 'Syne', sans-serif;
     font-size: clamp(36px, 6vw, 60px);
     font-weight: 800;
     line-height: 1.05;
@@ -332,7 +333,7 @@
   }
   .pre-note-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
   .pre-note-text {
-    font-family: 'DM Mono', monospace;
+    font-family: inherit;
     font-size: 12px;
     color: rgba(255,107,53,0.85);
     line-height: 1.6;
@@ -420,6 +421,27 @@
     border-radius: 4px;
   }
   .card-pre :focus-visible { outline-color: var(--orange); }
+
+  /* ── RESPONSIVE TABLES (mobile card layout) ── */
+  @media (max-width: 640px) {
+    .container { padding: 48px 16px 64px; }
+    table, thead, tbody, tr, td, th { display: block; }
+    thead { display: none; }
+    tbody tr {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 12px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr:last-child { border-bottom: none; }
+    td { padding: 0; }
+    .td-num { grid-row: 1; grid-column: 1; align-self: start; }
+    .td-name-cell { grid-row: 1; grid-column: 2; }
+    .pill-cell, .dose-cell { grid-column: 1 / -1; }
+    td:last-child { text-align: left; }
+    .dose { font-size: 14px; }
+  }
 
   /* ── REDUCED MOTION ── */
   @media (prefers-reduced-motion: reduce) {
@@ -560,68 +582,68 @@
           <tbody>
             <tr>
               <td class="td-num">01</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/dextrina-ciclica-cluster-dextrin-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">Dextrina Cíclica <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">Cluster Dextrin® · Raw Series</div>
                 </a>
               </td>
-              <td><span class="pill pill-carbs"><span class="pill-dot"></span>Carbohidratos</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-carbs"><span class="pill-dot"></span>Carbohidratos</span></td>
+              <td class="dose-cell">
                 <div class="dose">30 g</div>
                 <div class="dose-note">combustible de élite</div>
               </td>
             </tr>
             <tr>
               <td class="td-num">02</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/sport-series/evolytes-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">Evolytes <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">Electrolitos · Sport Series</div>
                 </a>
               </td>
-              <td><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
+              <td class="dose-cell">
                 <div class="dose">medio cacito</div>
                 <div class="dose-note">hidratación celular</div>
               </td>
             </tr>
             <tr>
               <td class="td-num">03</td>
-              <td>
+              <td class="td-name-cell">
                 <div class="td-name">Sal</div>
                 <div class="td-sub">Cloruro de sodio</div>
               </td>
-              <td><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
+              <td class="dose-cell">
                 <div class="dose">1 g</div>
                 <div class="dose-note">sodio base</div>
               </td>
             </tr>
             <tr>
               <td class="td-num">04</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/sport-series/evoeaa-s" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">EvoEAA's <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">Essential Amino Acids · Sport Series</div>
                 </a>
               </td>
-              <td><span class="pill pill-amino"><span class="pill-dot"></span>Aminoácidos</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-amino"><span class="pill-dot"></span>Aminoácidos</span></td>
+              <td class="dose-cell">
                 <div class="dose">10–15 g</div>
                 <div class="dose-note">síntesis proteica</div>
               </td>
             </tr>
             <tr>
               <td class="td-num">05</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/citrulina-malato-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">Citrulina Malato <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">2:1 · Raw Series</div>
                 </a>
               </td>
-              <td><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo</span></td>
+              <td class="dose-cell">
                 <div class="dose">5–8 g</div>
                 <div class="dose-note">vasodilatación</div>
               </td>
@@ -664,42 +686,42 @@
           <tbody>
             <tr>
               <td class="td-num">01</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/essential-series/cafeina-200mg" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">Cafeína <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">200 mg · Essential Series</div>
                 </a>
               </td>
-              <td><span class="pill pill-stim"><span class="pill-dot"></span>Estimulante</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-stim"><span class="pill-dot"></span>Estimulante</span></td>
+              <td class="dose-cell">
                 <div class="dose">200 mg</div>
                 <div class="dose-note">1 cápsula</div>
               </td>
             </tr>
             <tr>
               <td class="td-num">02</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/l-teanina-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">L-Teanina <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">Raw Series · sinergia con cafeína</div>
                 </a>
               </td>
-              <td><span class="pill pill-synergy"><span class="pill-dot"></span>Sinergia</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-synergy"><span class="pill-dot"></span>Sinergia</span></td>
+              <td class="dose-cell">
                 <div class="dose">0.5 g</div>
                 <div class="dose-note">1 cacito · subidón sin nervios</div>
               </td>
             </tr>
             <tr>
               <td class="td-num">03</td>
-              <td>
+              <td class="td-name-cell">
                 <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
                   <div class="td-name">GlycoPump® <span class="link-arrow" aria-hidden="true">↗</span></div>
                   <div class="td-sub">Glicerol 65% · Raw Series</div>
                 </a>
               </td>
-              <td><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo Máx.</span></td>
-              <td>
+              <td class="pill-cell"><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo Máx.</span></td>
+              <td class="dose-cell">
                 <div class="dose">1–2 cacitos</div>
                 <div class="dose-note">empezar con 1</div>
               </td>

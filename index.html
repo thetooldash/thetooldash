@@ -28,6 +28,7 @@
 <link rel="preconnect" href="https://www.hsnstore.com" crossorigin>
 <style>
   :root {
+    color-scheme: dark;
     --bg: #060608;
     --surface: rgba(255,255,255,0.028);
     --surface-hover: rgba(255,255,255,0.055);
@@ -209,9 +210,6 @@
     overflow: hidden;
     margin-bottom: 12px;
     transition: background 0.2s, border-color 0.2s;
-    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
   .card:hover {
     background: var(--surface-hover);
@@ -241,9 +239,10 @@
   tbody tr {
     border-bottom: 1px solid var(--border);
     transition: background 0.15s;
+    animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
   }
   tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: rgba(255,255,255,0.02); }
+  tbody tr:hover { background: rgba(255,255,255,0.045); }
 
   td {
     padding: 18px 20px;
@@ -311,6 +310,7 @@
     font-weight: 500;
     color: var(--text-primary);
     letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
   }
   .dose-note {
     font-family: 'DM Mono', monospace;
@@ -365,12 +365,12 @@
     50%      { opacity: 0.5; transform: scale(0.75); }
   }
 
-  /* Stagger delays */
-  .card:nth-child(1) { animation-delay: 0.05s; }
-  .card:nth-child(2) { animation-delay: 0.10s; }
-  .card:nth-child(3) { animation-delay: 0.15s; }
-  .card:nth-child(4) { animation-delay: 0.20s; }
-  .card:nth-child(5) { animation-delay: 0.25s; }
+  /* Stagger delays — tbody rows per table (nth-child resets per tbody) */
+  tbody tr:nth-child(1) { animation-delay: 0.05s; }
+  tbody tr:nth-child(2) { animation-delay: 0.12s; }
+  tbody tr:nth-child(3) { animation-delay: 0.19s; }
+  tbody tr:nth-child(4) { animation-delay: 0.26s; }
+  tbody tr:nth-child(5) { animation-delay: 0.33s; }
 
   .pre-note      { animation-delay: 0.18s; }
   .section-intra { animation-delay: 0s; }

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tool Dash - Dashboard de Herramientas</title>
+    <meta name="description" content="The Tool Dash es un espacio con diversas herramientas online que facilitan diferentes tareas, como acortadores de enlaces, edición de imágenes y más, con actualizaciones y nuevas utilidades constantes.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/logo-light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="/logo-dark.png" media="(prefers-color-scheme: dark)">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8BXB0TCH0"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T8BXB0TCH0');
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a0a2e 50%, #0d0a1a 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #c770ff;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1.5s ease-out;
+        }
+        
+        .main-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #c770ff, #a855f7, #e0a8ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(199, 112, 255, 0.5);
+            animation: neonGlow 3s ease-in-out infinite alternate, gradientShift 4s ease-in-out infinite;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: #e0a8ff;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out 0.5s both;
+            text-shadow: 0 0 15px rgba(224, 168, 255, 0.4);
+        }
+        
+        .description {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: #d0b0e0;
+            animation: fadeIn 2s ease-out 1s both;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tool-card {
+            opacity: 0;
+            background: linear-gradient(145deg, rgba(26, 10, 46, 0.6), rgba(13, 10, 26, 0.8));
+            border: 1px solid rgba(199, 112, 255, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            animation: slideUp 1s ease-out forwards;
+        }
+        
+        .tool-card:nth-child(1) { animation-delay: 0.2s; }
+        .tool-card:nth-child(2) { animation-delay: 0.4s; }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(199, 112, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .tool-card:hover::before {
+            left: 100%;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(168, 85, 247, 0.8);
+            box-shadow: 0 20px 40px rgba(199, 112, 255, 0.2), 
+                        0 0 30px rgba(168, 85, 247, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+        
+        .amazon-icon { color: #a855f7; }
+        .css-icon { color: #a855f7; }
+        
+        .tool-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tool-description {
+            color: #b0b0c0;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(199, 112, 255, 0.2);
+            background: rgba(10, 10, 35, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer p {
+            color: #707080;
+            font-size: 0.9rem;
+            animation: fadeIn 2s ease-out 1.5s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(199, 112, 255, 0.5),
+                            0 0 40px rgba(168, 85, 247, 0.3);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(199, 112, 255, 0.8),
+                            0 0 60px rgba(168, 85, 247, 0.5),
+                            0 0 80px rgba(199, 112, 255, 0.3);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .tool-card {
+                padding: 2rem;
+            }
+            
+            .main-title {
+                letter-spacing: 2px;
+                word-break:break-all;
+
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                margin-bottom: 2rem;
+            }
+            
+            .tool-card {
+                padding: 1.5rem;
+            }
+            
+            .main-title {
+                letter-spacing: 1px;
+            }
+        }
+        
+        @media (min-width: 2560px) {
+            .tools-grid {
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                gap: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+    
+    <div class="container">
+        <header class="hero">
+            <h1 class="main-title">TheToolDash</h1>
+            <p class="subtitle">Tu colección de herramientas web prácticas y efectivas</p>
+            <p class="description">
+                The Tool Dash es tu espacio web con herramientas prácticas y gratuitas para facilitar tareas digitales. Aquí encontrarás desde acortadores de links y editores de imágenes hasta plataformas para aprender CSS, y próximamente más utilidades para potenciar tu productividad online.
+            </p>
+        </header>
+        
+        <!-- Herramientas -->
+        <main class="tools-grid">
+            <div class="tool-card" onclick="openTool('amazon')">
+                <span class="tool-icon amazon-icon">🔗</span>
+                <h3 class="tool-title">Acortador de links de Amazon</h3>
+                <p class="tool-description">
+                    Simplifica y comparte tus enlaces de productos Amazon fácilmente. 
+                    Crea URLs limpias y profesionales para tus recomendaciones.
+                </p>
+            </div>
+            <div class="tool-card" onclick="openTool('resizer')">
+                <span class="tool-icon css-icon">🖼️</span>
+                <h3 class="tool-title">Redimensionador de imágenes</h3>
+                <p class="tool-description">
+                    Transforma tus imágenes al instante. 
+                    Ajusta dimensiones, formato y calidad con facilidad.
+                </p>
+            </div>
+            <div class="tool-card" onclick="openTool('background')">
+                <span class="tool-icon css-icon"><i class="fas fa-image upload-icon"></i></span>
+                <h3 class="tool-title">Eliminador de fondos de imágenes</h3>
+                <p class="tool-description">
+                    Elimina fondos de imágenes al instante.  
+                    Ajusta y descarga resultados con la mejor calidad.
+                </p>
+            </div>
+
+            <div class="tool-card" onclick="openTool('palette')">
+                <span class="tool-icon css-icon"><i class="fa-solid fa-swatchbook"></i></span>
+                <h3 class="tool-title">Extractor paleta de colores</h3>
+                <p class="tool-description">
+                    Extrae paletas de colores de cualquier imagen al instante.  
+                    Descubre combinaciones de colores perfectas y descárgalas fácilmente.
+                </p>
+            </div>
+            
+            <div class="tool-card" onclick="openTool('visualcss')">
+                <span class="tool-icon css-icon">🎨</span>
+                <h3 class="tool-title">VisualCSS</h3>
+                <p class="tool-description">
+                    Aprende CSS visualmente con ejemplos claros y animados. 
+                    Experimenta con propiedades en tiempo real y mejora tus habilidades.
+                </p>
+            </div>
+            
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 TheToolDash. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Crear partículas de fondo animadas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Función para navegación a herramientas
+        function openTool(toolName) {
+            const clickedCard = event.currentTarget;
+            clickedCard.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                clickedCard.style.transform = '';
+                
+                switch(toolName) {
+                    case 'amazon':
+                        window.location.href = 'https://thetooldash.com/projects/amazon-link-shortener';
+                        break;
+                    case 'resizer':
+                        window.location.href = 'https://thetooldash.com/projects/image-resizer';
+                        break;
+                    case 'background':
+                        window.location.href = 'https://thetooldash.com/projects/image-remover';
+                        break;
+                    case 'palette':
+                        window.location.href = 'https://thetooldash.com/projects/image-colors';
+                        break;
+                    case 'visualcss':
+                        window.location.href = 'https://visualcss.online';
+                        break;
+                    default:
+                        console.log('Herramienta no encontrada');
+                }
+            }, 150);
+        }
+        
+        // Parallax suave para el cursor
+        function addParallaxEffect() {
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                // Mover partículas ligeramente
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const speed = (index % 5 + 1) * 0.5;
+                    const x = (mouseX - 0.5) * speed;
+                    const y = (mouseY - 0.5) * speed;
+                    particle.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+        }
+        
+        // Inicializar efectos cuando cargue la página
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            addParallaxEffect();
+            
+            // Añadir animación de entrada escalonada a las cards
+            const toolCards = document.querySelectorAll('.tool-card');
+            toolCards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.2) + 's';
+            });
+        });
+        
+        // Optimización de rendimiento para animaciones en móvil
+        function optimizeForMobile() {
+            if (window.innerWidth <= 768) {
+                // Reducir partículas en móvil
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    if (index > 25) particle.remove();
+                });
+            }
+        }
+        
+        window.addEventListener('resize', optimizeForMobile);
+        optimizeForMobile();
+    </script>
+</body>
+</html>

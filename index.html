@@ -1,450 +1,572 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tool Dash - Dashboard de Herramientas</title>
-    <meta name="description" content="The Tool Dash es un espacio con diversas herramientas online que facilitan diferentes tareas, como acortadores de enlaces, edición de imágenes y más, con actualizaciones y nuevas utilidades constantes.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" href="/logo-light.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="/logo-dark.png" media="(prefers-color-scheme: dark)">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8BXB0TCH0"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Intra Entreno Definitivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060608;
+    --surface: rgba(255,255,255,0.028);
+    --surface-hover: rgba(255,255,255,0.055);
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(255,255,255,0.14);
+    --text-primary: #f0f0f0;
+    --text-secondary: rgba(240,240,240,0.45);
+    --text-muted: rgba(240,240,240,0.22);
+    --accent: #00e5a0;
+    --accent-dim: rgba(0,229,160,0.12);
+    --accent-glow: rgba(0,229,160,0.25);
+    --orange: #ff6b35;
+    --orange-dim: rgba(255,107,53,0.10);
+    --blue: #4d9eff;
+    --blue-dim: rgba(77,158,255,0.10);
+    --purple: #a78bfa;
+    --purple-dim: rgba(167,139,250,0.10);
+    --yellow: #ffd166;
+    --yellow-dim: rgba(255,209,102,0.10);
+  }
 
-    gtag('config', 'G-T8BXB0TCH0');
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Exo 2', sans-serif;
-            background: linear-gradient(135deg, #0a0a23 0%, #1a0a2e 50%, #0d0a1a 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-            overflow-x: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .bg-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #c770ff;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: float 20s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-        
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-        }
-        
-        .hero {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInDown 1.5s ease-out;
-        }
-        
-        .main-title {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, #c770ff, #a855f7, #e0a8ff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(199, 112, 255, 0.5);
-            animation: neonGlow 3s ease-in-out infinite alternate, gradientShift 4s ease-in-out infinite;
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
-        }
-        
-        .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: #e0a8ff;
-            margin-bottom: 2rem;
-            animation: fadeIn 2s ease-out 0.5s both;
-            text-shadow: 0 0 15px rgba(224, 168, 255, 0.4);
-        }
-        
-        .description {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: #d0b0e0;
-            animation: fadeIn 2s ease-out 1s both;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-        
-        .tool-card {
-            opacity: 0;
-            background: linear-gradient(145deg, rgba(26, 10, 46, 0.6), rgba(13, 10, 26, 0.8));
-            border: 1px solid rgba(199, 112, 255, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            animation: slideUp 1s ease-out forwards;
-        }
-        
-        .tool-card:nth-child(1) { animation-delay: 0.2s; }
-        .tool-card:nth-child(2) { animation-delay: 0.4s; }
-        
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(199, 112, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .tool-card:hover::before {
-            left: 100%;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            border-color: rgba(168, 85, 247, 0.8);
-            box-shadow: 0 20px 40px rgba(199, 112, 255, 0.2), 
-                        0 0 30px rgba(168, 85, 247, 0.3);
-        }
-        
-        .tool-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            animation: pulse 2s infinite;
-        }
-        
-        .amazon-icon { color: #a855f7; }
-        .css-icon { color: #a855f7; }
-        
-        .tool-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-        
-        .tool-description {
-            color: #b0b0c0;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid rgba(199, 112, 255, 0.2);
-            background: rgba(10, 10, 35, 0.5);
-            backdrop-filter: blur(10px);
-        }
-        
-        .footer p {
-            color: #707080;
-            font-size: 0.9rem;
-            animation: fadeIn 2s ease-out 1.5s both;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes neonGlow {
-            0% {
-                text-shadow: 0 0 20px rgba(199, 112, 255, 0.5),
-                            0 0 40px rgba(168, 85, 247, 0.3);
-            }
-            100% {
-                text-shadow: 0 0 30px rgba(199, 112, 255, 0.8),
-                            0 0 60px rgba(168, 85, 247, 0.5),
-                            0 0 80px rgba(199, 112, 255, 0.3);
-            }
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .tool-card {
-                padding: 2rem;
-            }
-            
-            .main-title {
-                letter-spacing: 2px;
-                word-break:break-all;
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                margin-bottom: 2rem;
-            }
-            
-            .tool-card {
-                padding: 1.5rem;
-            }
-            
-            .main-title {
-                letter-spacing: 1px;
-            }
-        }
-        
-        @media (min-width: 2560px) {
-            .tools-grid {
-                display: grid;
-                grid-template-columns: repeat(4,1fr);
-                gap: 2rem;
-            }
-        }
+  /* Ambient background blobs */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 55vw;
+    height: 55vw;
+    background: radial-gradient(ellipse, rgba(0,229,160,0.045) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -15%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(ellipse, rgba(77,158,255,0.04) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-    </style>
+  /* Noise overlay */
+  .noise {
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 32px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(0,229,160,0.2);
+    border-radius: 100px;
+    padding: 5px 12px 5px 10px;
+    margin-bottom: 24px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  h1 {
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.55) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  h1 span {
+    background: linear-gradient(90deg, var(--accent), #00c9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+    margin: 48px 0;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .section-label-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-label-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .section-label-icon {
+    font-size: 14px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    transition: background 0.2s, border-color 0.2s;
+    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .card:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-bright);
+  }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead tr {
+    border-bottom: 1px solid var(--border);
+  }
+  thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 14px 20px;
+    text-align: left;
+  }
+  thead th:last-child { text-align: right; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+  td {
+    padding: 18px 20px;
+    vertical-align: middle;
+  }
+  td:last-child { text-align: right; }
+
+  /* Index number */
+  .td-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    width: 36px;
+  }
+
+  /* Product name */
+  .td-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .td-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Role pill */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .pill-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+  .pill-carbs    { color: var(--yellow);  background: var(--yellow-dim);  border-color: rgba(255,209,102,0.2); }
+  .pill-carbs .pill-dot { background: var(--yellow); }
+  .pill-electro  { color: var(--blue);    background: var(--blue-dim);    border-color: rgba(77,158,255,0.2); }
+  .pill-electro .pill-dot { background: var(--blue); }
+  .pill-amino    { color: var(--purple);  background: var(--purple-dim);  border-color: rgba(167,139,250,0.2); }
+  .pill-amino .pill-dot { background: var(--purple); }
+  .pill-pump     { color: var(--accent);  background: var(--accent-dim);  border-color: rgba(0,229,160,0.2); }
+  .pill-pump .pill-dot { background: var(--accent); }
+  .pill-stim     { color: var(--orange);  background: var(--orange-dim);  border-color: rgba(255,107,53,0.2); }
+  .pill-stim .pill-dot { background: var(--orange); }
+  .pill-synergy  { color: #c084fc;        background: rgba(192,132,252,0.08); border-color: rgba(192,132,252,0.2); }
+  .pill-synergy .pill-dot { background: #c084fc; }
+
+  /* Dose */
+  .dose {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .dose-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ── PRE NOTE BOX ── */
+  .pre-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--orange-dim);
+    border: 1px solid rgba(255,107,53,0.18);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .pre-note-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .pre-note-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,107,53,0.85);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+  .pre-note-text strong {
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  /* ── WATERMARK ── */
+  .watermark {
+    text-align: center;
+    margin-top: 56px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.75); }
+  }
+
+  /* Stagger delays */
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+
+  .pre-note      { animation-delay: 0.18s; }
+  .section-intra { animation-delay: 0s; }
+  .section-pre   { animation-delay: 0.15s; }
+
+  /* top accent bar on sections */
+  .card-intra { border-top: 2px solid rgba(0,229,160,0.35); }
+  .card-pre   { border-top: 2px solid rgba(255,107,53,0.35); }
+
+  /* ── LINKS ── */
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: color 0.15s;
+  }
+  .product-link:hover .td-name {
+    color: var(--accent);
+  }
+  .product-link:hover .td-sub {
+    color: rgba(0,229,160,0.55);
+  }
+  .card-pre .product-link:hover .td-name {
+    color: var(--orange);
+  }
+  .card-pre .product-link:hover .td-sub {
+    color: rgba(255,107,53,0.55);
+  }
+  .link-arrow {
+    display: inline-block;
+    font-size: 10px;
+    opacity: 0;
+    margin-left: 5px;
+    transform: translateX(-4px);
+    transition: opacity 0.15s, transform 0.15s;
+    color: var(--accent);
+  }
+  .card-pre .link-arrow { color: var(--orange); }
+  tr:hover .link-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+</style>
 </head>
 <body>
-    <div class="bg-particles" id="particles"></div>
-    
-    <div class="container">
-        <header class="hero">
-            <h1 class="main-title">TheToolDash</h1>
-            <p class="subtitle">Tu colección de herramientas web prácticas y efectivas</p>
-            <p class="description">
-                The Tool Dash es tu espacio web con herramientas prácticas y gratuitas para facilitar tareas digitales. Aquí encontrarás desde acortadores de links y editores de imágenes hasta plataformas para aprender CSS, y próximamente más utilidades para potenciar tu productividad online.
-            </p>
-        </header>
-        
-        <!-- Herramientas -->
-        <main class="tools-grid">
-            <div class="tool-card" onclick="openTool('amazon')">
-                <span class="tool-icon amazon-icon">🔗</span>
-                <h3 class="tool-title">Acortador de links de Amazon</h3>
-                <p class="tool-description">
-                    Simplifica y comparte tus enlaces de productos Amazon fácilmente. 
-                    Crea URLs limpias y profesionales para tus recomendaciones.
-                </p>
-            </div>
-            <div class="tool-card" onclick="openTool('resizer')">
-                <span class="tool-icon css-icon">🖼️</span>
-                <h3 class="tool-title">Redimensionador de imágenes</h3>
-                <p class="tool-description">
-                    Transforma tus imágenes al instante. 
-                    Ajusta dimensiones, formato y calidad con facilidad.
-                </p>
-            </div>
-            <div class="tool-card" onclick="openTool('background')">
-                <span class="tool-icon css-icon"><i class="fas fa-image upload-icon"></i></span>
-                <h3 class="tool-title">Eliminador de fondos de imágenes</h3>
-                <p class="tool-description">
-                    Elimina fondos de imágenes al instante.  
-                    Ajusta y descarga resultados con la mejor calidad.
-                </p>
-            </div>
+<div class="noise"></div>
 
-            <div class="tool-card" onclick="openTool('palette')">
-                <span class="tool-icon css-icon"><i class="fa-solid fa-swatchbook"></i></span>
-                <h3 class="tool-title">Extractor paleta de colores</h3>
-                <p class="tool-description">
-                    Extrae paletas de colores de cualquier imagen al instante.  
-                    Descubre combinaciones de colores perfectas y descárgalas fácilmente.
-                </p>
-            </div>
-            
-            <div class="tool-card" onclick="openTool('visualcss')">
-                <span class="tool-icon css-icon">🎨</span>
-                <h3 class="tool-title">VisualCSS</h3>
-                <p class="tool-description">
-                    Aprende CSS visualmente con ejemplos claros y animados. 
-                    Experimenta con propiedades en tiempo real y mejora tus habilidades.
-                </p>
-            </div>
-            
-        </main>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Protocol Stack v2.0
     </div>
-    
-    <footer class="footer">
-        <p>&copy; 2025 TheToolDash. Todos los derechos reservados.</p>
-    </footer>
+    <h1>Los suplementos<br><span>Definitivos.</span></h1>
+    <p class="subtitle">// Stack de suplementación · HSN Raw & Sport Series</p>
+  </div>
 
-    <script>
-        // Crear partículas de fondo animadas
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.top = Math.random() * 100 + 'vh';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Función para navegación a herramientas
-        function openTool(toolName) {
-            const clickedCard = event.currentTarget;
-            clickedCard.style.transform = 'scale(0.95)';
-            
-            setTimeout(() => {
-                clickedCard.style.transform = '';
-                
-                switch(toolName) {
-                    case 'amazon':
-                        window.location.href = 'https://thetooldash.com/projects/amazon-link-shortener';
-                        break;
-                    case 'resizer':
-                        window.location.href = 'https://thetooldash.com/projects/image-resizer';
-                        break;
-                    case 'background':
-                        window.location.href = 'https://thetooldash.com/projects/image-remover';
-                        break;
-                    case 'palette':
-                        window.location.href = 'https://thetooldash.com/projects/image-colors';
-                        break;
-                    case 'visualcss':
-                        window.location.href = 'https://visualcss.online';
-                        break;
-                    default:
-                        console.log('Herramienta no encontrada');
-                }
-            }, 150);
-        }
-        
-        // Parallax suave para el cursor
-        function addParallaxEffect() {
-            document.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-                
-                // Mover partículas ligeramente
-                const particles = document.querySelectorAll('.particle');
-                particles.forEach((particle, index) => {
-                    const speed = (index % 5 + 1) * 0.5;
-                    const x = (mouseX - 0.5) * speed;
-                    const y = (mouseY - 0.5) * speed;
-                    particle.style.transform = `translate(${x}px, ${y}px)`;
-                });
-            });
-        }
-        
-        // Inicializar efectos cuando cargue la página
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            addParallaxEffect();
-            
-            // Añadir animación de entrada escalonada a las cards
-            const toolCards = document.querySelectorAll('.tool-card');
-            toolCards.forEach((card, index) => {
-                card.style.animationDelay = (index * 0.2) + 's';
-            });
-        });
-        
-        // Optimización de rendimiento para animaciones en móvil
-        function optimizeForMobile() {
-            if (window.innerWidth <= 768) {
-                // Reducir partículas en móvil
-                const particles = document.querySelectorAll('.particle');
-                particles.forEach((particle, index) => {
-                    if (index > 25) particle.remove();
-                });
-            }
-        }
-        
-        window.addEventListener('resize', optimizeForMobile);
-        optimizeForMobile();
-    </script>
+  <!-- ══════════════ INTRA ENTRENO ══════════════ -->
+  <div class="section-label section-intra">
+    <span class="section-label-icon">⚡</span>
+    <span class="section-label-text">Intra Entreno — durante el entrenamiento</span>
+    <span class="section-label-line"></span>
+  </div>
+
+  <div class="card card-intra">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:36px">#</th>
+          <th>Suplemento</th>
+          <th>Función</th>
+          <th>Dosis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-num">01</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/dextrina-ciclica-cluster-dextrin-en-polvo" target="_blank">
+              <div class="td-name">Dextrina Cíclica <span class="link-arrow">↗</span></div>
+              <div class="td-sub">Cluster Dextrin® · Raw Series</div>
+            </a>
+          </td>
+          <td><span class="pill pill-carbs"><span class="pill-dot"></span>Carbohidratos</span></td>
+          <td>
+            <div class="dose">30 g</div>
+            <div class="dose-note">combustible de élite</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-num">02</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/sport-series/evolytes-en-polvo" target="_blank">
+              <div class="td-name">Evolytes <span class="link-arrow">↗</span></div>
+              <div class="td-sub">Electrolitos · Sport Series</div>
+            </a>
+          </td>
+          <td><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
+          <td>
+            <div class="dose">medio cacito</div>
+            <div class="dose-note">hidratación celular</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-num">03</td>
+          <td>
+            <div class="td-name">Sal</div>
+            <div class="td-sub">Cloruro de sodio</div>
+          </td>
+          <td><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
+          <td>
+            <div class="dose">1 g</div>
+            <div class="dose-note">sodio base</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-num">04</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/sport-series/evoeaa-s" target="_blank">
+              <div class="td-name">EvoEAA's <span class="link-arrow">↗</span></div>
+              <div class="td-sub">Essential Amino Acids · Sport Series</div>
+            </a>
+          </td>
+          <td><span class="pill pill-amino"><span class="pill-dot"></span>Aminoácidos</span></td>
+          <td>
+            <div class="dose">10–15 g</div>
+            <div class="dose-note">síntesis proteica</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-num">05</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/citrulina-malato-en-polvo" target="_blank">
+              <div class="td-name">Citrulina Malato <span class="link-arrow">↗</span></div>
+              <div class="td-sub">2:1 · Raw Series</div>
+            </a>
+          </td>
+          <td><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo</span></td>
+          <td>
+            <div class="dose">5–8 g</div>
+            <div class="dose-note">vasodilatación</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════ PRE ENTRENO ══════════════ -->
+  <div class="section-label section-pre" style="animation-delay:0.12s">
+    <span class="section-label-icon">🔥</span>
+    <span class="section-label-text">Pre Entreno — 25–30 min antes</span>
+    <span class="section-label-line"></span>
+  </div>
+
+  <div class="pre-note">
+    <span class="pre-note-icon">⚠</span>
+    <div class="pre-note-text">
+      <strong>IMPORTANTE —</strong> Tomar con <strong>400–500 ml de agua</strong>, exactamente <strong>25–30 minutos</strong> antes de entrenar.
+    </div>
+  </div>
+
+  <div class="card card-pre" style="animation-delay:0.22s">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:36px">#</th>
+          <th>Suplemento</th>
+          <th>Función</th>
+          <th>Dosis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-num">01</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/essential-series/cafeina-200mg" target="_blank">
+              <div class="td-name">Cafeína <span class="link-arrow">↗</span></div>
+              <div class="td-sub">200 mg · Essential Series</div>
+            </a>
+          </td>
+          <td><span class="pill pill-stim"><span class="pill-dot"></span>Estimulante</span></td>
+          <td>
+            <div class="dose">200 mg</div>
+            <div class="dose-note">1 cápsula</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-num">02</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/l-teanina-en-polvo" target="_blank">
+              <div class="td-name">L-Teanina <span class="link-arrow">↗</span></div>
+              <div class="td-sub">Raw Series · sinergia con cafeína</div>
+            </a>
+          </td>
+          <td><span class="pill pill-synergy"><span class="pill-dot"></span>Sinergia</span></td>
+          <td>
+            <div class="dose">0.5 g</div>
+            <div class="dose-note">1 cacito · subidón sin nervios</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-num">03</td>
+          <td>
+            <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" target="_blank">
+              <div class="td-name">GlycoPump® <span class="link-arrow">↗</span></div>
+              <div class="td-sub">Glicerol 65% · Raw Series</div>
+            </a>
+          </td>
+          <td><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo Máx.</span></td>
+          <td>
+            <div class="dose">1–2 cacitos</div>
+            <div class="dose-note">empezar con 1</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="watermark">
+    Todos los productos disponibles en <a href="https://www.hsnstore.com/" target="_blank" style="color: var(--accent); text-decoration: none;">HSN Store</a>
+  </div>
+
+</div>
 </body>
 </html>

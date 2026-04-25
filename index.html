@@ -414,6 +414,63 @@
     transform: translateX(0);
   }
 
+  /* ── STICKY CTA (mobile only) ── */
+  .sticky-cta { display: none; }
+  @media (max-width: 767px) {
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      z-index: 10;
+      background: var(--accent);
+      color: #060608;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .sticky-cta.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  }
+
+  /* ── COPY BUTTON ── */
+  .copy-wrap {
+    text-align: center;
+    margin: 32px 0;
+  }
+  .copy-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .copy-btn:hover { color: var(--accent); border-color: rgba(0,229,160,0.3); }
+  .copy-btn.copied { color: var(--accent); border-color: rgba(0,229,160,0.3); }
+
+  /* ── ROW NO LINK ── */
+  .row-no-link { opacity: 0.92; cursor: default; }
+
   /* ── FOCUS VISIBLE ── */
   :focus-visible {
     outline: 2px solid var(--accent);
@@ -556,6 +613,7 @@
     <h1>Los suplementos<br><span>Definitivos.</span></h1>
     <p class="subtitle">// Stack de suplementación · HSN Raw &amp; Sport Series</p>
   </header>
+  <div id="scroll-sentinel" aria-hidden="true"></div>
 
   <main>
 
@@ -608,7 +666,7 @@
                 <div class="dose-note">hidratación celular</div>
               </td>
             </tr>
-            <tr>
+            <tr class="row-no-link">
               <td class="td-num">03</td>
               <td class="td-name-cell">
                 <div class="td-name">Sal</div>
@@ -655,6 +713,10 @@
     </section>
 
     <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <div class="copy-wrap">
+      <button class="copy-btn" type="button">Copiar protocolo</button>
+    </div>
 
     <section aria-labelledby="sec-pre">
       <h2 id="sec-pre" class="sr-only">Pre Entreno</h2>
@@ -741,5 +803,72 @@
   </footer>
 
 </div>
+
+<a class="sticky-cta" href="https://www.hsnstore.com/" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver el stack completo en HSN Store">Ver el stack completo en HSN →</a>
+
+<script>
+(function () {
+  /* ── Sticky CTA via IntersectionObserver ── */
+  if ('IntersectionObserver' in window) {
+    var sentinel = document.getElementById('scroll-sentinel');
+    var cta = document.querySelector('.sticky-cta');
+    if (sentinel && cta) {
+      new IntersectionObserver(function (entries) {
+        cta.classList.toggle('visible', !entries[0].isIntersecting);
+      }).observe(sentinel);
+    }
+  }
+
+  /* ── Copy protocol button ── */
+  var btn = document.querySelector('.copy-btn');
+  if (!btn) return;
+  var protocol = [
+    'PROTOCOL STACK v2.0 — HSN',
+    '',
+    'INTRA ENTRENO (durante el entrenamiento):',
+    '01. Dextrina Cíclica (Cluster Dextrin® · Raw Series) — Carbohidratos — 30 g',
+    '02. Evolytes (Electrolitos · Sport Series) — Electrolitos — medio cacito',
+    '03. Sal (Cloruro de sodio) — Electrolitos — 1 g',
+    '04. EvoEAA\'s (Essential Amino Acids · Sport Series) — Aminoácidos — 10–15 g',
+    '05. Citrulina Malato 2:1 (Raw Series) — Bombeo — 5–8 g',
+    '',
+    'PRE ENTRENO (25–30 min antes):',
+    '01. Cafeína 200 mg (Essential Series) — Estimulante — 200 mg (1 cápsula)',
+    '02. L-Teanina (Raw Series) — Sinergia — 0.5 g (1 cacito)',
+    '03. GlycoPump® Glicerol 65% (Raw Series) — Bombeo máx. — 1–2 cacitos',
+    '',
+    'Ver todos en: https://www.hsnstore.com/'
+  ].join('\n');
+
+  var originalLabel = btn.textContent;
+  function showCopied() {
+    btn.textContent = 'Copiado ✓';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = originalLabel;
+      btn.classList.remove('copied');
+    }, 2000);
+  }
+  function fallback() {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = protocol;
+      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showCopied();
+    } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(protocol).then(showCopied, fallback);
+    } else {
+      fallback();
+    }
+  });
+}());
+</script>
 </body>
 </html>

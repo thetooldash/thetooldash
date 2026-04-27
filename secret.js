@@ -2,7 +2,6 @@
   'use strict';
 
   var KEYWORD = 'bise';
-  var KEY     = 'ttd_unlocked';
   var CHARS   = '!<>-_\\/[]{}=+*^?#ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@$%&';
 
   /* ── Text Scramble ─────────────────────────────────────── */
@@ -47,8 +46,6 @@
 
   /* ── Full animation sequence ───────────────────────────── */
   function unlock() {
-    localStorage.setItem(KEY, '1');
-
     /* Phase 1 — Digital Glitch */
     var layerR = mk('glitch-layer glitch-r');
     var layerC = mk('glitch-layer glitch-c');
@@ -85,11 +82,6 @@
 
   /* ── Keyboard listener ─────────────────────────────────── */
   function init() {
-    if (localStorage.getItem(KEY) === '1') {
-      showAll(false);
-      return;
-    }
-
     var seq = '';
     document.addEventListener('keydown', function (e) {
       var t = e.target;

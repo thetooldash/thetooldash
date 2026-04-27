@@ -3,29 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Protocol Stack v2.0 — Stack de Suplementación Pre &amp; Intra Entreno (HSN Raw &amp; Sport Series)</title>
+<title>The Tool Dash — Protocolos de Suplementación de Élite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Syne:wght@600;800&display=swap" rel="stylesheet">
 <link rel="icon" href="/logo-light.png" media="(prefers-color-scheme: light)">
 <link rel="icon" href="/logo-dark.png" media="(prefers-color-scheme: dark)">
-<meta name="description" content="Protocolo de suplementación de élite: pre e intra entreno con HSN Raw &amp; Sport Series. Dosis exactas, función y producto recomendado. Ver el stack →">
+<meta name="description" content="Protocolos de suplementación de élite: pre e intra entreno, pérdida de grasa y aumento de masa. Dosis exactas, función y producto recomendado.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://thetooldash.com/">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://thetooldash.com/">
-<meta property="og:title" content="Protocol Stack v2.0 — Stack de Suplementación Pre &amp; Intra Entreno (HSN Raw &amp; Sport Series)">
-<meta property="og:description" content="Protocolo de suplementación de élite: pre e intra entreno con HSN Raw &amp; Sport Series. Dosis exactas, función y producto recomendado. Ver el stack →">
+<meta property="og:title" content="The Tool Dash — Protocolos de Suplementación de Élite">
+<meta property="og:description" content="Protocolos de suplementación de élite: pre e intra entreno, pérdida de grasa y aumento de masa. Dosis exactas, función y producto recomendado.">
 <meta property="og:image" content="https://thetooldash.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="The Tool Dash">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Protocol Stack v2.0 — Stack de Suplementación Pre &amp; Intra Entreno">
-<meta name="twitter:description" content="Protocolo de suplementación de élite: pre e intra entreno con HSN Raw &amp; Sport Series. Dosis exactas, función y producto recomendado. Ver el stack →">
+<meta name="twitter:title" content="The Tool Dash — Protocolos de Suplementación de Élite">
+<meta name="twitter:description" content="Protocolos de suplementación de élite: pre e intra entreno, pérdida de grasa y aumento de masa.">
 <meta name="twitter:image" content="https://thetooldash.com/og.png">
-<link rel="preconnect" href="https://www.hsnstore.com" crossorigin>
 <style>
   :root {
     color-scheme: dark;
@@ -39,27 +38,20 @@
     --text-muted: rgba(240,240,240,0.50);
     --accent: #00e5a0;
     --accent-dim: rgba(0,229,160,0.12);
-    --accent-glow: rgba(0,229,160,0.25);
     --orange: #ff6b35;
     --orange-dim: rgba(255,107,53,0.10);
     --blue: #4d9eff;
     --blue-dim: rgba(77,158,255,0.10);
     --purple: #a78bfa;
     --purple-dim: rgba(167,139,250,0.10);
-    --yellow: #ffd166;
-    --yellow-dim: rgba(255,209,102,0.10);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   .sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border: 0;
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip-path: inset(50%); white-space: nowrap; border: 0;
   }
 
   body {
@@ -68,290 +60,200 @@
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
   }
 
-  /* Ambient background blobs */
   body::before {
     content: '';
-    position: fixed;
-    top: -20%;
-    left: -10%;
-    width: 55vw;
-    height: 55vw;
+    position: fixed; top: -20%; left: -10%;
+    width: 55vw; height: 55vw;
     background: radial-gradient(ellipse, rgba(0,229,160,0.045) 0%, transparent 65%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
   body::after {
     content: '';
-    position: fixed;
-    bottom: -15%;
-    right: -10%;
-    width: 50vw;
-    height: 50vw;
+    position: fixed; bottom: -15%; right: -10%;
+    width: 50vw; height: 50vw;
     background: radial-gradient(ellipse, rgba(77,158,255,0.04) 0%, transparent 65%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
 
-  /* Noise overlay */
   .noise {
-    position: fixed;
-    inset: 0;
-    opacity: 0.025;
+    position: fixed; inset: 0; opacity: 0.025;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
-    pointer-events: none;
-    z-index: 1;
+    background-size: 200px 200px; pointer-events: none; z-index: 1;
   }
 
+  /* ── NAV ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50; height: 56px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(16px, 4vw, 32px);
+    background: rgba(6,6,8,0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fff; text-decoration: none;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; align-items: center;
+    gap: 2px; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+    padding-left: 12px;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.06em;
+    color: var(--text-secondary); text-decoration: none;
+    padding: 5px 10px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--text-primary); background: var(--surface-hover); }
+  .nav-links a.active { color: var(--accent); background: var(--accent-dim); }
+
+  /* ── CONTAINER ── */
   .container {
-    position: relative;
-    z-index: 2;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: clamp(48px, 6vw, 72px) clamp(16px, 4vw, 32px) clamp(64px, 8vw, 80px);
+    position: relative; z-index: 2;
+    max-width: 860px; margin: 0 auto;
+    padding: calc(56px + clamp(48px, 6vw, 72px)) clamp(16px, 4vw, 32px) clamp(64px, 8vw, 80px);
   }
 
-  /* ── HEADER ── */
-  .header {
-    margin-bottom: 56px;
+  /* ── HERO ── */
+  .hero {
+    margin-bottom: 64px;
     animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
   }
-
   .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-flex; align-items: center; gap: 6px;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-dim);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-dim);
     border: 1px solid rgba(0,229,160,0.2);
-    border-radius: 100px;
-    padding: 5px 12px 5px 10px;
+    border-radius: 100px; padding: 5px 12px 5px 10px;
     margin-bottom: 24px;
   }
   .badge-dot {
     width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
+    background: var(--accent); border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
   }
-
   h1 {
     font-family: 'Syne', sans-serif;
     font-size: clamp(36px, 6vw, 60px);
-    font-weight: 800;
-    line-height: 1.05;
+    font-weight: 800; line-height: 1.05;
     letter-spacing: -0.03em;
-    color: #ffffff;
     background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.55) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 16px;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 16px;
   }
   h1 span {
     background: linear-gradient(90deg, var(--accent), #00c9ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  .subtitle {
+  .hero-desc {
+    font-size: 15px; color: var(--text-secondary);
+    line-height: 1.7; max-width: 520px;
+  }
+  .hero-meta {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 20px; flex-wrap: wrap;
+  }
+  .hero-meta-item {
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--text-secondary);
-    letter-spacing: 0.02em;
+    font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em;
+  }
+  .hero-meta-sep {
+    width: 3px; height: 3px; background: var(--border-bright); border-radius: 50%;
   }
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
-    margin: 48px 0;
-  }
-
-  /* ── SECTION LABEL ── */
-  .section-label {
-    display: flex;
-    align-items: center;
+  /* ── PROTOCOL GRID ── */
+  .protocol-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    margin-bottom: 20px;
-    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both;
-  }
-  .section-label-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-  .section-label-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
-  .section-label-icon {
-    font-size: 14px;
   }
 
-  /* ── CARD ── */
-  .card {
+  .protocol-card {
+    display: flex; flex-direction: column;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 12px;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .card:hover {
-    background: var(--surface-hover);
-    border-color: var(--border-bright);
-  }
-
-  /* ── TABLE ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  thead tr {
-    border-bottom: 1px solid var(--border);
-  }
-  thead th {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 14px 20px;
-    text-align: left;
-  }
-  thead th:last-child { text-align: right; }
-
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.15s;
+    border-radius: 16px; padding: 24px;
+    text-decoration: none; color: inherit;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
+    position: relative;
   }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: rgba(255,255,255,0.045); }
-
-  td {
-    padding: 18px 20px;
-    vertical-align: middle;
-  }
-  td:last-child { text-align: right; }
-
-  /* Index number */
-  .td-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    width: 36px;
+  .protocol-card:hover {
+    background: var(--surface-hover);
+    transform: translateY(-2px);
   }
 
-  /* Product name */
-  .td-name {
-    font-size: 15px;
-    font-weight: 600;
+  .card-orange { border-top: 2px solid rgba(255,107,53,0.4); }
+  .card-orange:hover { border-color: rgba(255,107,53,0.6); box-shadow: 0 8px 32px rgba(255,107,53,0.07); }
+  .card-green  { border-top: 2px solid rgba(0,229,160,0.4); }
+  .card-green:hover  { border-color: rgba(0,229,160,0.6);  box-shadow: 0 8px 32px rgba(0,229,160,0.07); }
+  .card-blue   { border-top: 2px solid rgba(77,158,255,0.4); }
+  .card-purple { border-top: 2px solid rgba(167,139,250,0.4); }
+
+  .card-coming { opacity: 0.5; pointer-events: none; cursor: default; }
+
+  .card-icon { font-size: 22px; margin-bottom: 16px; }
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 21px; font-weight: 800;
+    letter-spacing: -0.02em; margin-bottom: 10px;
     color: var(--text-primary);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
   }
-  .td-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text-secondary);
-    margin-top: 3px;
-    letter-spacing: 0.01em;
+  .card-desc {
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.65; flex: 1; margin-bottom: 24px;
   }
-
-  /* Role pill */
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    padding: 4px 10px;
-    border-radius: 100px;
-    border: 1px solid transparent;
-    white-space: nowrap;
+  .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .pill-dot { width: 5px; height: 5px; border-radius: 50%; }
-
-  .pill-carbs    { color: var(--yellow);  background: var(--yellow-dim);  border-color: rgba(255,209,102,0.2); }
-  .pill-carbs .pill-dot { background: var(--yellow); }
-  .pill-electro  { color: var(--blue);    background: var(--blue-dim);    border-color: rgba(77,158,255,0.2); }
-  .pill-electro .pill-dot { background: var(--blue); }
-  .pill-amino    { color: var(--purple);  background: var(--purple-dim);  border-color: rgba(167,139,250,0.2); }
-  .pill-amino .pill-dot { background: var(--purple); }
-  .pill-pump     { color: var(--accent);  background: var(--accent-dim);  border-color: rgba(0,229,160,0.2); }
-  .pill-pump .pill-dot { background: var(--accent); }
-  .pill-stim     { color: var(--orange);  background: var(--orange-dim);  border-color: rgba(255,107,53,0.2); }
-  .pill-stim .pill-dot { background: var(--orange); }
-  .pill-synergy  { color: #c084fc;        background: rgba(192,132,252,0.08); border-color: rgba(192,132,252,0.2); }
-  .pill-synergy .pill-dot { background: #c084fc; }
-
-  /* Dose */
-  .dose {
+  .card-count {
     font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .card-orange .card-count { color: var(--orange); }
+  .card-green  .card-count { color: var(--accent); }
+  .card-blue   .card-count { color: var(--blue); }
+  .card-purple .card-count { color: var(--purple); }
+
+  .card-arrow {
     font-size: 15px;
-    font-weight: 500;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums;
+    transition: transform 0.15s;
   }
-  .dose-note {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
+  .protocol-card:hover .card-arrow { transform: translateX(4px); }
+  .card-orange .card-arrow { color: var(--orange); }
+  .card-green  .card-arrow { color: var(--accent); }
 
-  /* ── PRE NOTE BOX ── */
-  .pre-note {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    background: var(--orange-dim);
-    border: 1px solid rgba(255,107,53,0.18);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both;
-  }
-  .pre-note-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .pre-note-text {
-    font-family: inherit;
-    font-size: 12px;
-    color: rgba(255,107,53,0.85);
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-  }
-  .pre-note-text strong {
-    color: var(--orange);
-    font-weight: 500;
+  .coming-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--surface-hover);
+    border: 1px solid var(--border-bright);
+    border-radius: 100px; padding: 3px 10px;
+    color: var(--text-muted);
   }
 
   /* ── WATERMARK ── */
   .watermark {
-    text-align: center;
-    margin-top: 56px;
+    text-align: center; margin-top: 64px;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
+    font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em;
     animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s both;
   }
 
@@ -365,435 +267,101 @@
     50%      { opacity: 0.5; transform: scale(0.75); }
   }
 
-  /* Stagger delays — tbody rows per table (nth-child resets per tbody) */
-  tbody tr:nth-child(1) { animation-delay: 0.05s; }
-  tbody tr:nth-child(2) { animation-delay: 0.12s; }
-  tbody tr:nth-child(3) { animation-delay: 0.19s; }
-  tbody tr:nth-child(4) { animation-delay: 0.26s; }
-  tbody tr:nth-child(5) { animation-delay: 0.33s; }
+  .protocol-card:nth-child(1) { animation-delay: 0.06s; }
+  .protocol-card:nth-child(2) { animation-delay: 0.13s; }
+  .protocol-card:nth-child(3) { animation-delay: 0.20s; }
+  .protocol-card:nth-child(4) { animation-delay: 0.27s; }
 
-  .pre-note      { animation-delay: 0.18s; }
-  .section-intra { animation-delay: 0s; }
-  .section-pre   { animation-delay: 0.15s; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-  /* top accent bar on sections */
-  .card-intra { border-top: 2px solid rgba(0,229,160,0.35); }
-  .card-pre   { border-top: 2px solid rgba(255,107,53,0.35); }
-
-  /* ── LINKS ── */
-  .product-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: color 0.15s;
-  }
-  .product-link:hover .td-name {
-    color: var(--accent);
-  }
-  .product-link:hover .td-sub {
-    color: rgba(0,229,160,0.55);
-  }
-  .card-pre .product-link:hover .td-name {
-    color: var(--orange);
-  }
-  .card-pre .product-link:hover .td-sub {
-    color: rgba(255,107,53,0.55);
-  }
-  .link-arrow {
-    display: inline-block;
-    font-size: 10px;
-    opacity: 0;
-    margin-left: 5px;
-    transform: translateX(-4px);
-    transition: opacity 0.15s, transform 0.15s;
-    color: var(--accent);
-  }
-  .card-pre .link-arrow { color: var(--orange); }
-  tr:hover .link-arrow {
-    opacity: 1;
-    transform: translateX(0);
+  @media (max-width: 560px) {
+    .protocol-grid { grid-template-columns: 1fr; }
   }
 
-  /* ── STICKY CTA (mobile only) ── */
-  .sticky-cta { display: none; }
-  @media (max-width: 767px) {
-    .sticky-cta {
-      display: block;
-      position: fixed;
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
-      z-index: 10;
-      background: var(--accent);
-      color: #060608;
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-align: center;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    .sticky-cta.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-  }
-
-  /* ── COPY BUTTON ── */
-  .copy-wrap {
-    text-align: center;
-    margin: 32px 0;
-  }
-  .copy-btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 8px 18px;
-    cursor: pointer;
-    transition: color 0.15s, border-color 0.15s;
-  }
-  .copy-btn:hover { color: var(--accent); border-color: rgba(0,229,160,0.3); }
-  .copy-btn.copied { color: var(--accent); border-color: rgba(0,229,160,0.3); }
-
-  /* ── ROW NO LINK ── */
-  .row-no-link { opacity: 0.92; cursor: default; }
-
-  /* ── FOCUS VISIBLE ── */
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  .card-pre :focus-visible { outline-color: var(--orange); }
-
-  /* ── RESPONSIVE TABLES (mobile card layout) ── */
-  @media (max-width: 640px) {
-    .container { padding: 48px 16px 64px; }
-    table, thead, tbody, tr, td, th { display: block; }
-    thead { display: none; }
-    tbody tr {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 4px 12px;
-      padding: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    tbody tr:last-child { border-bottom: none; }
-    td { padding: 0; }
-    .td-num { grid-row: 1; grid-column: 1; align-self: start; }
-    .td-name-cell { grid-row: 1; grid-column: 2; }
-    .pill-cell, .dose-cell { grid-column: 1 / -1; }
-    td:last-child { text-align: left; }
-    .dose { font-size: 14px; }
-  }
-
-  /* ── REDUCED MOTION ── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
     }
   }
-
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Protocol Stack v2.0 — Stack de Suplementación Pre & Intra Entreno",
-  "description": "Protocolo de suplementación de élite para pre e intra entrenamiento con productos HSN Raw & Sport Series.",
-  "inLanguage": "es",
-  "author": { "@type": "Person", "name": "noemedinadev" },
-  "publisher": { "@type": "Organization", "name": "The Tool Dash", "url": "https://thetooldash.com" },
-  "mainEntityOfPage": "https://thetooldash.com/",
-  "mainEntity": {
-    "@type": "ItemList",
-    "name": "Protocol Stack v2.0",
-    "itemListElement": [
-      {
-        "@type": "ListItem", "position": 1,
-        "item": {
-          "@type": "Product",
-          "name": "Dextrina Cíclica (Cluster Dextrin®)",
-          "description": "Carbohidrato de absorción sostenida para combustible de élite intra entreno. Dosis: 30 g.",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/raw-series/dextrina-ciclica-cluster-dextrin-en-polvo", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      },
-      {
-        "@type": "ListItem", "position": 2,
-        "item": {
-          "@type": "Product",
-          "name": "Evolytes",
-          "description": "Electrolitos en polvo para hidratación celular intra entreno. Dosis: medio cacito.",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/sport-series/evolytes-en-polvo", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      },
-      {
-        "@type": "ListItem", "position": 3,
-        "item": {
-          "@type": "Product",
-          "name": "EvoEAA's",
-          "description": "Aminoácidos esenciales para síntesis proteica intra entreno. Dosis: 10–15 g.",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/sport-series/evoeaa-s", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      },
-      {
-        "@type": "ListItem", "position": 4,
-        "item": {
-          "@type": "Product",
-          "name": "Citrulina Malato 2:1",
-          "description": "Potenciador del bombeo muscular por vasodilatación intra entreno. Dosis: 5–8 g.",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/raw-series/citrulina-malato-en-polvo", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      },
-      {
-        "@type": "ListItem", "position": 5,
-        "item": {
-          "@type": "Product",
-          "name": "Cafeína 200 mg",
-          "description": "Estimulante para rendimiento cognitivo y físico en pre entreno. Dosis: 1 cápsula (200 mg).",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/essential-series/cafeina-200mg", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      },
-      {
-        "@type": "ListItem", "position": 6,
-        "item": {
-          "@type": "Product",
-          "name": "L-Teanina",
-          "description": "Sinergia con cafeína para un subidón sin nervios en pre entreno. Dosis: 0.5 g.",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/raw-series/l-teanina-en-polvo", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      },
-      {
-        "@type": "ListItem", "position": 7,
-        "item": {
-          "@type": "Product",
-          "name": "GlycoPump® (Glicerol 65%)",
-          "description": "Máximo bombeo muscular e hidratación intracelular en pre entreno. Dosis: 1–2 cacitos.",
-          "brand": { "@type": "Brand", "name": "HSN" },
-          "offers": { "@type": "AggregateOffer", "url": "https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo", "availability": "https://schema.org/InStock", "priceCurrency": "EUR" }
-        }
-      }
-    ]
-  }
-}
-</script>
+<link rel="stylesheet" href="/secret.css">
 </head>
 <body>
 <div class="noise" aria-hidden="true"></div>
 
+<nav class="nav" aria-label="Navegación principal">
+  <a href="/" class="nav-logo">TTD<span>.</span></a>
+  <ul class="nav-links" role="list">
+    <li><a href="/pre-entreno.html">Pre entreno</a></li>
+    <li><a href="/intra-entreno.html">Intra entreno</a></li>
+    <li><a href="/perdida-de-grasa.html">Pérdida de grasa</a></li>
+    <li><a href="/aumento-de-bise.html">Aumento de bise</a></li>
+    <li class="nav-secret" style="display:none" aria-hidden="true"><a href="/peptidos.html">Péptidos</a></li>
+  </ul>
+</nav>
+
 <div class="container">
 
-  <header class="header">
+  <header class="hero">
     <div class="badge">
       <span class="badge-dot" aria-hidden="true"></span>
       Protocol Stack v2.0
     </div>
     <h1>Los suplementos<br><span>Definitivos.</span></h1>
-    <p class="subtitle">// Stack de suplementación · HSN Raw &amp; Sport Series</p>
+    <p class="hero-desc">Protocolos de suplementación basados en evidencia. Dosis exactas, función específica y producto recomendado. Sin relleno.</p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">HSN Raw &amp; Sport Series</span>
+      <span class="hero-meta-sep" aria-hidden="true"></span>
+      <span class="hero-meta-item">8 suplementos activos</span>
+      <span class="hero-meta-sep" aria-hidden="true"></span>
+      <span class="hero-meta-item">4 protocolos</span>
+    </div>
   </header>
-  <div id="scroll-sentinel" aria-hidden="true"></div>
 
   <main>
+    <div class="protocol-grid">
 
-    <section aria-labelledby="sec-intra">
-      <h2 id="sec-intra" class="sr-only">Intra Entreno</h2>
+      <a class="protocol-card card-orange" href="/pre-entreno.html" aria-label="Ver protocolo Pre Entreno — 3 suplementos">
+        <div class="card-icon" aria-hidden="true">🔥</div>
+        <div class="card-title">Pre Entreno</div>
+        <p class="card-desc">Estimulación, bombeo y foco cognitivo. Tomar 25–30 min antes de entrenar con 400–500 ml de agua.</p>
+        <div class="card-footer">
+          <span class="card-count">3 suplementos</span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </div>
+      </a>
 
-      <div class="section-label section-intra">
-        <span class="section-label-icon" aria-hidden="true">⚡</span>
-        <span class="section-label-text">Intra Entreno — durante el entrenamiento</span>
-        <span class="section-label-line"></span>
-      </div>
+      <a class="protocol-card card-green" href="/intra-entreno.html" aria-label="Ver protocolo Intra Entreno — 5 suplementos">
+        <div class="card-icon" aria-hidden="true">⚡</div>
+        <div class="card-title">Intra Entreno</div>
+        <p class="card-desc">Combustible, hidratación y síntesis proteica durante la sesión. Todo en la misma coctelera.</p>
+        <div class="card-footer">
+          <span class="card-count">5 suplementos</span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </div>
+      </a>
 
-      <div class="card card-intra">
-        <table>
-          <caption class="sr-only">Suplementos a tomar durante el entrenamiento, con función y dosis recomendada</caption>
-          <thead>
-            <tr>
-              <th scope="col" style="width:36px">#</th>
-              <th scope="col">Suplemento</th>
-              <th scope="col">Función</th>
-              <th scope="col">Dosis</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="td-num">01</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/dextrina-ciclica-cluster-dextrin-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">Dextrina Cíclica <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">Cluster Dextrin® · Raw Series</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-carbs"><span class="pill-dot"></span>Carbohidratos</span></td>
-              <td class="dose-cell">
-                <div class="dose">30 g</div>
-                <div class="dose-note">combustible de élite</div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-num">02</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/sport-series/evolytes-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">Evolytes <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">Electrolitos · Sport Series</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
-              <td class="dose-cell">
-                <div class="dose">medio cacito</div>
-                <div class="dose-note">hidratación celular</div>
-              </td>
-            </tr>
-            <tr class="row-no-link">
-              <td class="td-num">03</td>
-              <td class="td-name-cell">
-                <div class="td-name">Sal</div>
-                <div class="td-sub">Cloruro de sodio</div>
-              </td>
-              <td class="pill-cell"><span class="pill pill-electro"><span class="pill-dot"></span>Electrolitos</span></td>
-              <td class="dose-cell">
-                <div class="dose">1 g</div>
-                <div class="dose-note">sodio base</div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-num">04</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/sport-series/evoeaa-s" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">EvoEAA's <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">Essential Amino Acids · Sport Series</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-amino"><span class="pill-dot"></span>Aminoácidos</span></td>
-              <td class="dose-cell">
-                <div class="dose">10–15 g</div>
-                <div class="dose-note">síntesis proteica</div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-num">05</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/citrulina-malato-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">Citrulina Malato <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">2:1 · Raw Series</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo</span></td>
-              <td class="dose-cell">
-                <div class="dose">5–8 g</div>
-                <div class="dose-note">vasodilatación</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </section>
-
-    <div class="divider" role="separator" aria-hidden="true"></div>
-
-    <div class="copy-wrap">
-      <button class="copy-btn" type="button">Copiar protocolo</button>
-    </div>
-
-    <section aria-labelledby="sec-pre">
-      <h2 id="sec-pre" class="sr-only">Pre Entreno</h2>
-
-      <div class="section-label section-pre" style="animation-delay:0.12s">
-        <span class="section-label-icon" aria-hidden="true">🔥</span>
-        <span class="section-label-text">Pre Entreno — 25–30 min antes</span>
-        <span class="section-label-line"></span>
-      </div>
-
-      <div class="pre-note" role="note" aria-label="Aviso importante">
-        <span class="pre-note-icon" aria-hidden="true">⚠</span>
-        <div class="pre-note-text">
-          <strong>IMPORTANTE —</strong> Tomar con <strong>400–500 ml de agua</strong>, exactamente <strong>25–30 minutos</strong> antes de entrenar.
+      <div class="protocol-card card-blue card-coming" role="img" aria-label="Pérdida de grasa — próximamente">
+        <div class="card-icon" aria-hidden="true">🔵</div>
+        <div class="card-title">Pérdida de Grasa</div>
+        <p class="card-desc">Protocolo de termogénesis y supresión del apetito. Suplementación inteligente para déficit calórico.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
         </div>
       </div>
 
-      <div class="card card-pre" style="animation-delay:0.22s">
-        <table>
-          <caption class="sr-only">Suplementos a tomar 25–30 minutos antes del entrenamiento, con función y dosis recomendada</caption>
-          <thead>
-            <tr>
-              <th scope="col" style="width:36px">#</th>
-              <th scope="col">Suplemento</th>
-              <th scope="col">Función</th>
-              <th scope="col">Dosis</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="td-num">01</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/essential-series/cafeina-200mg" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">Cafeína <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">200 mg · Essential Series</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-stim"><span class="pill-dot"></span>Estimulante</span></td>
-              <td class="dose-cell">
-                <div class="dose">200 mg</div>
-                <div class="dose-note">1 cápsula</div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-num">02</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/l-teanina-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">L-Teanina <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">Raw Series · sinergia con cafeína</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-synergy"><span class="pill-dot"></span>Sinergia</span></td>
-              <td class="dose-cell">
-                <div class="dose">0.5 g</div>
-                <div class="dose-note">1 cacito · subidón sin nervios</div>
-              </td>
-            </tr>
-            <tr>
-              <td class="td-num">03</td>
-              <td class="td-name-cell">
-                <a class="product-link" href="https://www.hsnstore.com/marcas/raw-series/glycopump-glicerol-en-polvo" target="_blank" rel="sponsored noopener noreferrer">
-                  <div class="td-name">GlycoPump® <span class="link-arrow" aria-hidden="true">↗</span></div>
-                  <div class="td-sub">Glicerol 65% · Raw Series</div>
-                </a>
-              </td>
-              <td class="pill-cell"><span class="pill pill-pump"><span class="pill-dot"></span>Bombeo Máx.</span></td>
-              <td class="dose-cell">
-                <div class="dose">1–2 cacitos</div>
-                <div class="dose-note">empezar con 1</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="protocol-card card-purple card-coming" role="img" aria-label="Aumento de bise — próximamente">
+        <div class="card-icon" aria-hidden="true">💪</div>
+        <div class="card-title">Aumento de Bise</div>
+        <p class="card-desc">Stack para hipertrofia y recuperación muscular. Maximizar el superávit calórico de calidad.</p>
+        <div class="card-footer">
+          <span class="coming-badge">Próximamente</span>
+        </div>
       </div>
 
-    </section>
-
+    </div>
   </main>
 
   <footer>
@@ -803,72 +371,6 @@
   </footer>
 
 </div>
-
-<a class="sticky-cta" href="https://www.hsnstore.com/" target="_blank" rel="sponsored noopener noreferrer" aria-label="Ver el stack completo en HSN Store">Ver el stack completo en HSN →</a>
-
-<script>
-(function () {
-  /* ── Sticky CTA via IntersectionObserver ── */
-  if ('IntersectionObserver' in window) {
-    var sentinel = document.getElementById('scroll-sentinel');
-    var cta = document.querySelector('.sticky-cta');
-    if (sentinel && cta) {
-      new IntersectionObserver(function (entries) {
-        cta.classList.toggle('visible', !entries[0].isIntersecting);
-      }).observe(sentinel);
-    }
-  }
-
-  /* ── Copy protocol button ── */
-  var btn = document.querySelector('.copy-btn');
-  if (!btn) return;
-  var protocol = [
-    'PROTOCOL STACK v2.0 — HSN',
-    '',
-    'INTRA ENTRENO (durante el entrenamiento):',
-    '01. Dextrina Cíclica (Cluster Dextrin® · Raw Series) — Carbohidratos — 30 g',
-    '02. Evolytes (Electrolitos · Sport Series) — Electrolitos — medio cacito',
-    '03. Sal (Cloruro de sodio) — Electrolitos — 1 g',
-    '04. EvoEAA\'s (Essential Amino Acids · Sport Series) — Aminoácidos — 10–15 g',
-    '05. Citrulina Malato 2:1 (Raw Series) — Bombeo — 5–8 g',
-    '',
-    'PRE ENTRENO (25–30 min antes):',
-    '01. Cafeína 200 mg (Essential Series) — Estimulante — 200 mg (1 cápsula)',
-    '02. L-Teanina (Raw Series) — Sinergia — 0.5 g (1 cacito)',
-    '03. GlycoPump® Glicerol 65% (Raw Series) — Bombeo máx. — 1–2 cacitos',
-    '',
-    'Ver todos en: https://www.hsnstore.com/'
-  ].join('\n');
-
-  var originalLabel = btn.textContent;
-  function showCopied() {
-    btn.textContent = 'Copiado ✓';
-    btn.classList.add('copied');
-    setTimeout(function () {
-      btn.textContent = originalLabel;
-      btn.classList.remove('copied');
-    }, 2000);
-  }
-  function fallback() {
-    try {
-      var ta = document.createElement('textarea');
-      ta.value = protocol;
-      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      showCopied();
-    } catch (e) {}
-  }
-  btn.addEventListener('click', function () {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(protocol).then(showCopied, fallback);
-    } else {
-      fallback();
-    }
-  });
-}());
-</script>
+<script src="/secret.js"></script>
 </body>
 </html>

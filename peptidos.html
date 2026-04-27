@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pérdida de Grasa — Próximamente · The Tool Dash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+<link rel="icon" href="/logo-light.png" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/logo-dark.png" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #060608;
+    --surface: rgba(255,255,255,0.028);
+    --surface-hover: rgba(255,255,255,0.055);
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(255,255,255,0.14);
+    --text-primary: #f0f0f0;
+    --text-secondary: rgba(240,240,240,0.62);
+    --text-muted: rgba(240,240,240,0.50);
+    --accent: #00e5a0;
+    --accent-dim: rgba(0,229,160,0.12);
+    --orange: #ff6b35;
+    --orange-dim: rgba(255,107,53,0.10);
+    --blue: #4d9eff;
+    --blue-dim: rgba(77,158,255,0.10);
+    --purple: #a78bfa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh; overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; top: -20%; left: -10%;
+    width: 55vw; height: 55vw;
+    background: radial-gradient(ellipse, rgba(77,158,255,0.04) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed; bottom: -15%; right: -10%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(ellipse, rgba(77,158,255,0.025) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .noise {
+    position: fixed; inset: 0; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px; pointer-events: none; z-index: 1;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50; height: 56px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(16px, 4vw, 32px);
+    background: rgba(6,6,8,0.82);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 800; letter-spacing: -0.02em;
+    color: #fff; text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; align-items: center;
+    gap: 2px; list-style: none;
+    overflow-x: auto; scrollbar-width: none; padding-left: 12px;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.06em;
+    color: var(--text-secondary); text-decoration: none;
+    padding: 5px 10px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s; white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--text-primary); background: var(--surface-hover); }
+  .nav-links a.active { color: var(--blue); background: var(--blue-dim); }
+
+  /* ── CONTAINER ── */
+  .container {
+    position: relative; z-index: 2;
+    max-width: 860px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh;
+    padding: calc(56px + 48px) clamp(16px, 4vw, 32px) 80px;
+    text-align: center;
+  }
+
+  /* ── COMING SOON ── */
+  .coming-icon { font-size: 48px; margin-bottom: 32px; }
+  .coming-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); background: var(--blue-dim);
+    border: 1px solid rgba(77,158,255,0.22);
+    border-radius: 100px; padding: 5px 12px 5px 10px; margin-bottom: 24px;
+  }
+  .coming-badge-dot {
+    width: 6px; height: 6px; background: var(--blue); border-radius: 50%;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800; line-height: 1.05; letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.55) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 16px;
+  }
+  h1 span {
+    background: linear-gradient(90deg, var(--blue), #00e5ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .coming-desc {
+    font-size: 15px; color: var(--text-secondary);
+    line-height: 1.7; max-width: 420px; margin: 0 auto 40px;
+  }
+  .back-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 100px; padding: 8px 18px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .back-link:hover { color: var(--blue); border-color: rgba(77,158,255,0.3); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .container { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+<link rel="stylesheet" href="/secret.css">
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Navegación principal">
+  <a href="/" class="nav-logo">TTD<span>.</span></a>
+  <ul class="nav-links" role="list">
+    <li><a href="/pre-entreno.html">Pre entreno</a></li>
+    <li><a href="/intra-entreno.html">Intra entreno</a></li>
+    <li><a href="/perdida-de-grasa.html" class="active" aria-current="page">Pérdida de grasa</a></li>
+    <li><a href="/aumento-de-bise.html">Aumento de bise</a></li>
+    <li class="nav-secret" style="display:none" aria-hidden="true"><a href="/peptidos.html">Péptidos</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="coming-icon" aria-hidden="true">🔵</div>
+  <div class="coming-badge">
+    <span class="coming-badge-dot" aria-hidden="true"></span>
+    Próximamente
+  </div>
+  <h1>Péptidos<br><span>Recuperación.</span></h1>
+  <p class="coming-desc"> En construcción.</p>
+  <a class="back-link" href="/">← Volver al inicio</a>
+</div>
+<script src="/secret.js"></script>
+</body>
+</html>
